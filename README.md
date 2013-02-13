@@ -102,3 +102,6 @@ isPlaying
 allowPortraitFullscreen
 ```
 Default fullscreen is landscape. For portrait fullscreen, mark this property to YES.
+
+#License
+ShareThis is available under the MIT license. See the LICENSE file for more info.
