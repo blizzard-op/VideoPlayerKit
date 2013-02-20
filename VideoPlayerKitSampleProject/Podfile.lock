@@ -1,0 +1,30 @@
+
+COCOAPODS: 0.16.1
+
+DEPENDENCIES: 
+- VideoPlayerKit (from `https://github.com/ign/VideoPlayerKit.git')
+
+PODS: 
+- Facebook-iOS-SDK (3.1.1)
+- NSData+Base64 (1.0.0)
+- REComposeViewController (0.0.1)
+- ShareThis (1.0.0): 
+  - Facebook-iOS-SDK (= 3.1.1)
+  - REComposeViewController (= 0.0.1)
+  - cocoa-oauth (= 0.0.1)
+- VideoPlayerKit (1.0.0): 
+  - ShareThis (= 1.0.0)
+- cocoa-oauth (0.0.1): 
+  - NSData+Base64 (~> 1.0)
+
+SPEC CHECKSUMS: 
+  NSData+Base64: 8b910cb8a64f45daec6fb15936c36a9a911c57ca
+  Facebook-iOS-SDK: 5fc068ebfd8c8c9b0fad476bc36dbbf1fffeebc8
+  cocoa-oauth: 8f4c8b77c77ac660de37f8125557c4ec09b0118a
+  REComposeViewController: 346eb738a68ddcce77b3d771695a91c7af1a5701
+  ShareThis: 9df4a93ea65a676c9e852588d98d35e4831b7636
+  VideoPlayerKit: df22855ccb0a286e7b9c20a439ebd73b7c78d00c
+
+EXTERNAL SOURCES: 
+  VideoPlayerKit: 
+    :git: https://github.com/ign/VideoPlayerKit.git
