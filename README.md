@@ -6,6 +6,8 @@ We know how hard making a custom video player is. That is why we created VideoPl
 Uses ShareThis to handle sharing. More information can be found
 [here](https://github.com/ign/ShareThis)
 
+Use the sample project to see how VideoPlayerKit works.
+
 An example can be seen in [IGN's IPL app](https://itunes.apple.com/us/app/ign-pro-league/id439792150?mt=8)
 
 [![](http://i.imgur.com/Ayxdp5V.png)](http://i.imgur.com/Ayxdp5V.png)
@@ -13,6 +15,12 @@ An example can be seen in [IGN's IPL app](https://itunes.apple.com/us/app/ign-pr
 
 [![](http://i.imgur.com/disgBRz.png)](http://i.imgur.com/disgBRz.png)
 [![](http://i.imgur.com/v4WswEi.png)](http://i.imgur.com/v4WswEi.png) 
+
+#Using the sample project
+Download the github project and use the Makefile to gather all the pods require for VideoPlayerKit. Use the following command:
+``` objective-c
+Make clean setup
+```
 
 #Installation Instruction:
 
@@ -35,11 +43,14 @@ setControlsEdgeInsets
 ```
 If a top view is set, use this to offset the controls so it accounts for the top view. Usually you'll only want to change the edge inset's top parameter but the option is left open to change it entirely.
 
-###Playing video on player
+###Playing video on inline player
 ``` objective-c
 playVideoWithTitle:URL:videoID:isStreaming:playInFullScreen:
 ```
 The method will automatically start playing the video that is given in the url. The title parameter is used for the label that will appear near the bottom of the video player. The videoID and isStreaming parameters are used mainly for analytics tracking. The last parameter, playInFullScreen, is a boolean that when set to YES, the video will play automatically in fullscreen.
+
+###Playing video on non-inline player
+To play a video on a non-inline player, you must add the video player view controller's view as a subview of the current view. Then you follow the same route as the inline player playVideoWithTitle:URL:videoID:isStreaming:playInFullScreen: to play the video.
 
 ##VideoPlayerDelegate
 
