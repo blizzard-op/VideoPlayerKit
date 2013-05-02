@@ -132,7 +132,7 @@
     if (!_fullscreen) {
         CGSize twoLineSize = [@"M\nM" sizeWithFont:[_titleLabel font]
                                  constrainedToSize:CGSizeMake(insetBounds.size.width, CGFLOAT_MAX)
-                                     lineBreakMode:UILineBreakModeWordWrap];
+                                     lineBreakMode:NSLineBreakByWordWrapping];
         
         self.autoresizingMask = UIViewAutoresizingNone;
         
