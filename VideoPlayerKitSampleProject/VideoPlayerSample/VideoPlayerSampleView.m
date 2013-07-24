@@ -6,7 +6,8 @@
 
 @property (nonatomic, weak) UIView *topView;
 @property (nonatomic, weak) UIView *videoPlayerView;
-@property (nonatomic, readwrite, strong) UIButton *playButton;
+@property (nonatomic, readwrite, strong) UIButton *playInFullScreenButton;
+@property (nonatomic, readwrite, strong) UIButton *playInFrameButton;
 
 @end
 
@@ -15,10 +16,14 @@
 - (id)initWithTopView:(UIView *)topView videoPlayerView:(UIView *)videoPlayerView
 {
     if ((self = [super init])) {
-        self.playButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [self.playButton setTitle:@"Play Video" forState:UIControlStateNormal];
-        [self addSubview:self.playButton];
+        self.playInFullScreenButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [self.playInFullScreenButton setTitle:@"Full screen" forState:UIControlStateNormal];
+        [self addSubview:self.playInFullScreenButton];
         self.backgroundColor = [UIColor whiteColor];
+        
+        self.playInFrameButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [self.playInFrameButton setTitle:@"In frame" forState:UIControlStateNormal];
+        [self addSubview:self.playInFrameButton];
     }
     
     return self;
@@ -28,10 +33,15 @@
 {
     [super layoutSubviews];
     CGRect bounds = self.bounds;
-    self.playButton.frame = CGRectMake((bounds.size.width - 100)/2.0,
-                                       (bounds.size.height - 50)/2.0,
+    self.playInFullScreenButton.frame = CGRectMake(bounds.size.width/4.0 - 50,
+                                       (bounds.size.height - 150),
                                        100,
                                        50);
+    
+    self.playInFrameButton.frame = CGRectMake(bounds.size.width/4.0 * 3 - 50,
+                                                   (bounds.size.height - 150),
+                                                   100,
+                                                   50);
     
 }
 

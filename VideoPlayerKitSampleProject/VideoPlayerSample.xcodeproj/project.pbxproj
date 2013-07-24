@@ -19,6 +19,19 @@
 		76D67AF5165419CA00CAC69A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76D67AF4165419CA00CAC69A /* Default@2x.png */; };
 		76D67AF7165419CA00CAC69A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76D67AF6165419CA00CAC69A /* Default-568h@2x.png */; };
 		76D67B0216541A0200CAC69A /* VideoPlayerSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D67B0116541A0200CAC69A /* VideoPlayerSampleViewController.m */; };
+		EBB14C79170BB6730007249C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB14C78170BB6730007249C /* AVFoundation.framework */; };
+		EBB14C7B170BB67A0007249C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB14C7A170BB67A0007249C /* AudioToolbox.framework */; };
+		EBB14C7D170BB6890007249C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB14C7C170BB6890007249C /* CoreLocation.framework */; };
+		EBB14C7F170BB6930007249C /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB14C7E170BB6930007249C /* CoreMedia.framework */; };
+		EBB14C81170BB69B0007249C /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB14C80170BB69B0007249C /* MediaPlayer.framework */; };
+		EBB14C83170BB6A10007249C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB14C82170BB6A10007249C /* MessageUI.framework */; };
+		EBB14C85170BB6A70007249C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB14C84170BB6A70007249C /* QuartzCore.framework */; };
+		EBB14C87170BB6AC0007249C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB14C86170BB6AC0007249C /* Security.framework */; };
+		EBB14C89170BB6B10007249C /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB14C88170BB6B10007249C /* Twitter.framework */; };
+		EBB14C8B170BB6B70007249C /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB14C8A170BB6B70007249C /* Accounts.framework */; };
+		EBB14C8D170BB6BC0007249C /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB14C8C170BB6BC0007249C /* AdSupport.framework */; };
+		EBB14C8F170BB6C30007249C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB14C8E170BB6C30007249C /* Social.framework */; };
+		EBB14C91170BB6D90007249C /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EBB14C90170BB6D90007249C /* libsqlite3.0.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +53,19 @@
 		76D67AF6165419CA00CAC69A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		76D67B0016541A0200CAC69A /* VideoPlayerSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayerSampleViewController.h; sourceTree = "<group>"; };
 		76D67B0116541A0200CAC69A /* VideoPlayerSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerSampleViewController.m; sourceTree = "<group>"; };
+		EBB14C78170BB6730007249C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		EBB14C7A170BB67A0007249C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		EBB14C7C170BB6890007249C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		EBB14C7E170BB6930007249C /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		EBB14C80170BB69B0007249C /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		EBB14C82170BB6A10007249C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		EBB14C84170BB6A70007249C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		EBB14C86170BB6AC0007249C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		EBB14C88170BB6B10007249C /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		EBB14C8A170BB6B70007249C /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		EBB14C8C170BB6BC0007249C /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		EBB14C8E170BB6C30007249C /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		EBB14C90170BB6D90007249C /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,9 +73,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBB14C91170BB6D90007249C /* libsqlite3.0.dylib in Frameworks */,
+				EBB14C8F170BB6C30007249C /* Social.framework in Frameworks */,
+				EBB14C8D170BB6BC0007249C /* AdSupport.framework in Frameworks */,
+				EBB14C8B170BB6B70007249C /* Accounts.framework in Frameworks */,
+				EBB14C89170BB6B10007249C /* Twitter.framework in Frameworks */,
+				EBB14C87170BB6AC0007249C /* Security.framework in Frameworks */,
+				EBB14C85170BB6A70007249C /* QuartzCore.framework in Frameworks */,
+				EBB14C83170BB6A10007249C /* MessageUI.framework in Frameworks */,
+				EBB14C81170BB69B0007249C /* MediaPlayer.framework in Frameworks */,
+				EBB14C7F170BB6930007249C /* CoreMedia.framework in Frameworks */,
+				EBB14C7D170BB6890007249C /* CoreLocation.framework in Frameworks */,
+				76D67AE5165419CA00CAC69A /* CoreGraphics.framework in Frameworks */,
+				EBB14C7B170BB67A0007249C /* AudioToolbox.framework in Frameworks */,
+				EBB14C79170BB6730007249C /* AVFoundation.framework in Frameworks */,
 				76D67AE1165419CA00CAC69A /* UIKit.framework in Frameworks */,
 				76D67AE3165419CA00CAC69A /* Foundation.framework in Frameworks */,
-				76D67AE5165419CA00CAC69A /* CoreGraphics.framework in Frameworks */,
 				44545B2C7C044D2C94C8F495 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,6 +99,19 @@
 		76D67AD1165419CA00CAC69A = {
 			isa = PBXGroup;
 			children = (
+				EBB14C90170BB6D90007249C /* libsqlite3.0.dylib */,
+				EBB14C8E170BB6C30007249C /* Social.framework */,
+				EBB14C8C170BB6BC0007249C /* AdSupport.framework */,
+				EBB14C8A170BB6B70007249C /* Accounts.framework */,
+				EBB14C88170BB6B10007249C /* Twitter.framework */,
+				EBB14C86170BB6AC0007249C /* Security.framework */,
+				EBB14C84170BB6A70007249C /* QuartzCore.framework */,
+				EBB14C82170BB6A10007249C /* MessageUI.framework */,
+				EBB14C80170BB69B0007249C /* MediaPlayer.framework */,
+				EBB14C7E170BB6930007249C /* CoreMedia.framework */,
+				EBB14C7C170BB6890007249C /* CoreLocation.framework */,
+				EBB14C7A170BB67A0007249C /* AudioToolbox.framework */,
+				EBB14C78170BB6730007249C /* AVFoundation.framework */,
 				76D67AE6165419CA00CAC69A /* VideoPlayerSample */,
 				76D67ADF165419CA00CAC69A /* Frameworks */,
 				76D67ADD165419CA00CAC69A /* Products */,
@@ -240,6 +292,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/Pods/build/Debug-iphonesimulator\"";
+				PODS_BUILD_HEADERS_SEARCH_PATHS = "\"${PODS_ROOT}/BuildHeaders\" \"${PODS_ROOT}/BuildHeaders/Facebook-iOS-SDK\" \"${PODS_ROOT}/BuildHeaders/Facebook-iOS-SDK/FacebookSDK\" \"${PODS_ROOT}/BuildHeaders/NSData+Base64\" \"${PODS_ROOT}/BuildHeaders/REComposeViewController\" \"${PODS_ROOT}/BuildHeaders/ShareThis\" \"${PODS_ROOT}/BuildHeaders/VideoPlayerKit\" \"${PODS_ROOT}/BuildHeaders/cocoa-oauth\"";
+				PODS_ROOT = "${SRCROOT}/pods";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -261,7 +316,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/Pods/build/Debug-iphonesimulator\"";
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PODS_BUILD_HEADERS_SEARCH_PATHS = "\"${PODS_ROOT}/BuildHeaders\" \"${PODS_ROOT}/BuildHeaders/Facebook-iOS-SDK\" \"${PODS_ROOT}/BuildHeaders/Facebook-iOS-SDK/FacebookSDK\" \"${PODS_ROOT}/BuildHeaders/NSData+Base64\" \"${PODS_ROOT}/BuildHeaders/REComposeViewController\" \"${PODS_ROOT}/BuildHeaders/ShareThis\" \"${PODS_ROOT}/BuildHeaders/VideoPlayerKit\" \"${PODS_ROOT}/BuildHeaders/cocoa-oauth\"";
+				PODS_ROOT = "${SRCROOT}/pods";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -275,11 +333,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../../../Desktop/Cocoa_StreamStitcherDemo/StreamStitcherDemo\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VideoPlayerSample/VideoPlayerSample-Prefix.pch";
-				HEADER_SEARCH_PATHS = "${PODS_HEADERS_SEARCH_PATHS}";
+				HEADER_SEARCH_PATHS = "$(PODS_BUILD_HEADERS_SEARCH_PATHS)";
 				INFOPLIST_FILE = "VideoPlayerSample/VideoPlayerSample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -295,11 +352,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../../../Desktop/Cocoa_StreamStitcherDemo/StreamStitcherDemo\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VideoPlayerSample/VideoPlayerSample-Prefix.pch";
-				HEADER_SEARCH_PATHS = "${PODS_HEADERS_SEARCH_PATHS}";
+				HEADER_SEARCH_PATHS = "$(PODS_BUILD_HEADERS_SEARCH_PATHS)";
 				INFOPLIST_FILE = "VideoPlayerSample/VideoPlayerSample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";

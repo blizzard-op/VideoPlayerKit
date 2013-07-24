@@ -7,4 +7,6 @@
 
 @property (nonatomic) BOOL fullScreenToggled;
 
+@property NSURL *address;
+
 @end
