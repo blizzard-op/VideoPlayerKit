@@ -43,25 +43,34 @@
 - (void)loadView
 {
     self.videoPlayerSampleView = [[VideoPlayerSampleView alloc] initWithTopView:nil videoPlayerView:nil];
-    [self.videoPlayerSampleView.playButton addTarget:self action:@selector(playVideo) forControlEvents:UIControlEventTouchUpInside];
+    [self.videoPlayerSampleView.playinFullScreenButton addTarget:self action:@selector(playVideo:) forControlEvents:UIControlEventTouchUpInside];
+    [self.videoPlayerSampleView.playInFrameButton addTarget:self action:@selector(playVideo:) forControlEvents:UIControlEventTouchUpInside];
     [self setView:self.videoPlayerSampleView];
 }
 
-- (void)playVideo
+- (void)playVideo:(id)owner
 {
     NSURL *url = [NSURL URLWithString:@"http://ignhdvod-f.akamaihd.net/i/assets.ign.com/videos/zencoder/,416/d4ff0368b5e4a24aee0dab7703d4123a-110000,640/d4ff0368b5e4a24aee0dab7703d4123a-500000,640/d4ff0368b5e4a24aee0dab7703d4123a-1000000,960/d4ff0368b5e4a24aee0dab7703d4123a-2500000,1280/d4ff0368b5e4a24aee0dab7703d4123a-3000000,-1354660143-w.mp4.csmil/master.m3u8"];
     
+//        NSURL *url = [NSURL URLWithString:@"http://10.0.0.1/videohog/Ahfuck.mp4"];
+    
     if (!self.videoPlayerViewController) {
-        self.videoPlayerViewController = [VideoPlayerKit videoPlayerWithContainingViewController:self optionalTopView:_topView hideTopViewWithControls:YES];
+        self.videoPlayerViewController = [VideoPlayerKit videoPlayerWithContainingViewController:self optionalTopView:self.topView hideTopViewWithControls:YES];
         // Need to set edge inset if top view is inserted
         [self.videoPlayerViewController setControlsEdgeInsets:UIEdgeInsetsMake(self.topView.frame.size.height, 0, 0, 0)];
         self.videoPlayerViewController.delegate = self;
         self.videoPlayerViewController.allowPortraitFullscreen = YES;
     }
+    else
+    {
+        [self.videoPlayerViewController.view removeFromSuperview];
+    }
     
     [self.view addSubview:self.videoPlayerViewController.view];
     
-    [self.videoPlayerViewController playVideoWithTitle:@"Title" URL:url videoID:nil shareURL:nil isStreaming:NO playInFullScreen:YES];
+    self.videoPlayerViewController.view.frame = CGRectMake(0, 0, self.view.bounds.size.width , self.view.bounds.size.height/2);
+    
+    [self.videoPlayerViewController playVideoWithTitle:@"Title" URL:url videoID:nil shareURL:nil isStreaming:NO playInFullScreen:owner == self.videoPlayerSampleView.playinFullScreenButton isAlwaysFullscreen:owner == self.videoPlayerSampleView.playinFullScreenButton];
 }
 
 - (void)viewDidLoad
