@@ -6,9 +6,8 @@
 
 @property (nonatomic, weak) UIView *topView;
 @property (nonatomic, weak) UIView *videoPlayerView;
-@property (nonatomic, readwrite, strong) UIButton *playinFullScreenButton;
+@property (nonatomic, readwrite, strong) UIButton *playInFullScreenButton;
 @property (nonatomic, readwrite, strong) UIButton *playInFrameButton;
-@property (nonatomic, readwrite, strong) UIButton *stopButton;
 
 @end
 
@@ -17,9 +16,9 @@
 - (id)initWithTopView:(UIView *)topView videoPlayerView:(UIView *)videoPlayerView
 {
     if ((self = [super init])) {
-        self.playinFullScreenButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [self.playinFullScreenButton setTitle:@"Full screen" forState:UIControlStateNormal];
-        [self addSubview:self.playinFullScreenButton];
+        self.playInFullScreenButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [self.playInFullScreenButton setTitle:@"Full screen" forState:UIControlStateNormal];
+        [self addSubview:self.playInFullScreenButton];
         self.backgroundColor = [UIColor whiteColor];
         
         self.playInFrameButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -34,7 +33,7 @@
 {
     [super layoutSubviews];
     CGRect bounds = self.bounds;
-    self.playinFullScreenButton.frame = CGRectMake(bounds.size.width/4.0 - 50,
+    self.playInFullScreenButton.frame = CGRectMake(bounds.size.width/4.0 - 50,
                                        (bounds.size.height - 150),
                                        100,
                                        50);

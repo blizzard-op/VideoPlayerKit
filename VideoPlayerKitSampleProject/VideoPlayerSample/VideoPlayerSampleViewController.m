@@ -43,7 +43,7 @@
 - (void)loadView
 {
     self.videoPlayerSampleView = [[VideoPlayerSampleView alloc] initWithTopView:nil videoPlayerView:nil];
-    [self.videoPlayerSampleView.playinFullScreenButton addTarget:self action:@selector(playVideo:) forControlEvents:UIControlEventTouchUpInside];
+    [self.videoPlayerSampleView.playInFullScreenButton addTarget:self action:@selector(playVideo:) forControlEvents:UIControlEventTouchUpInside];
     [self.videoPlayerSampleView.playInFrameButton addTarget:self action:@selector(playVideo:) forControlEvents:UIControlEventTouchUpInside];
     [self setView:self.videoPlayerSampleView];
 }
@@ -70,7 +70,7 @@
     
     self.videoPlayerViewController.view.frame = CGRectMake(0, 0, self.view.bounds.size.width , self.view.bounds.size.height/2);
     
-    [self.videoPlayerViewController playVideoWithTitle:@"Title" URL:url videoID:nil shareURL:nil isStreaming:NO playInFullScreen:owner == self.videoPlayerSampleView.playinFullScreenButton isAlwaysFullscreen:owner == self.videoPlayerSampleView.playinFullScreenButton];
+    [self.videoPlayerViewController playVideoWithTitle:@"Title" URL:url videoID:nil shareURL:nil isStreaming:NO playInFullScreen:owner == self.videoPlayerSampleView.playInFullScreenButton isAlwaysFullscreen:owner == self.videoPlayerSampleView.playInFullScreenButton];
 }
 
 - (void)viewDidLoad

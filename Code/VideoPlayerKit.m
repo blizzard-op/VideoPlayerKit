@@ -278,11 +278,6 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
 {
     if (!self.fullScreenModeToggled) {
         self.fullScreenModeToggled = YES;
-
-//        //hide controls
-//        if (!self.isAlwaysFullscreen) {
-//            [self hideControlsAnimated:YES];
-//        }
         
         [self syncFullScreenButton:[[UIApplication sharedApplication] statusBarOrientation]];
         
@@ -365,7 +360,6 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
     if (self.fullScreenModeToggled) {
         self.fullScreenModeToggled = NO;
         [self.videoPlayerView setFullscreen:NO];
-//        [self hideControlsAnimated:NO];
         [self syncFullScreenButton:self.interfaceOrientation];
         
         if (self.topView) {

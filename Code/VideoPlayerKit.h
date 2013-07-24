@@ -17,6 +17,7 @@
 @property (readwrite, strong) AVPlayer *videoPlayer;
 
 - (void)playVideoWithTitle:(NSString *)title URL:(NSURL *)url videoID:(NSString *)videoID shareURL:(NSURL *)shareURL isStreaming:(BOOL)streaming playInFullScreen:(BOOL)playInFullScreen;
+- (void)playVideoWithTitle:(NSString *)title URL:(NSURL *)url videoID:(NSString *)videoID shareURL:(NSURL *)shareURL isStreaming:(BOOL)streaming playInFullScreen:(BOOL)playInFullScreen isAlwaysFullscreen:(BOOL)isAlwaysFullscreen
 - (void)syncFullScreenButton:(UIInterfaceOrientation)toInterfaceOrientation;
 - (void)showCannotFetchStreamError;
 - (void)launchFullScreen;
