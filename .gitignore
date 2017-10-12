@@ -1,6 +1,8 @@
 # build files #
 ###############
 build/
+cache/
+.bundle/
 .idea/
 *.zargo~
 Pods/

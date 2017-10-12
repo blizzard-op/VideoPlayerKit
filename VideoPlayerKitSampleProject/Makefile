@@ -3,6 +3,7 @@
 BUILDDIR=${CURDIR}/build
 GEM_CACHE=${CURDIR}/cache
 POD_CACHE=${CURDIR}/Pods
+BUNDLE_CACHE=${CURDIR}/.bundle
 DISTRIBUTION_IDENTITY=iPhone Distribution: FOX Interactive Media
 
 PLISTBUDDY=/usr/libexec/PlistBuddy
@@ -31,3 +32,4 @@ clean:
 	${RM} -r ${BUILDDIR}
 	${RM} -r ${GEM_CACHE}
 	${RM} -r ${POD_CACHE}
+	${RM} -r ${BUNDLE_CACHE}
