@@ -100,11 +100,11 @@
         _activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
         [self addSubview:_activityIndicator];
 
-        _shareButton = [[UIButton alloc] init];
-        [_shareButton setImage:[UIImage imageNamed:@"share-button"] forState:UIControlStateNormal];
-        [_shareButton setShowsTouchWhenHighlighted:YES];
+//        _shareButton = [[UIButton alloc] init];
+//        [_shareButton setImage:[UIImage imageNamed:@"share-button"] forState:UIControlStateNormal];
+//        [_shareButton setShowsTouchWhenHighlighted:YES];
         
-        [self addSubview:_shareButton];
+//        [self addSubview:_shareButton];
         self.controlsEdgeInsets = UIEdgeInsetsZero;
     }
     return self;
@@ -147,7 +147,7 @@
                                         bounds.size.height - twoLineSize.height - _padding - _padding);
         [_airplayIsActiveView setFrame:playerFrame];
 
-        [_shareButton setFrame:CGRectMake(insetBounds.size.width - shareImage.size.width, insetBounds.origin.y, shareImage.size.width, shareImage.size.height)];
+//        [_shareButton setFrame:CGRectMake(insetBounds.size.width - shareImage.size.width, insetBounds.origin.y, shareImage.size.width, shareImage.size.height)];
     } else {
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
@@ -158,7 +158,7 @@
         
         [_airplayIsActiveView setFrame:bounds];
         
-        [_shareButton setFrame:CGRectMake(insetBounds.size.width - shareImage.size.width, insetBounds.origin.y, shareImage.size.width, shareImage.size.height)];
+//        [_shareButton setFrame:CGRectMake(insetBounds.size.width - shareImage.size.width, insetBounds.origin.y, shareImage.size.width, shareImage.size.height)];
     }
     
     [_playerControlBar setFrame:CGRectMake(bounds.origin.x,

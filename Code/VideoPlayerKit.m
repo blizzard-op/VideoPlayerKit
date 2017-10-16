@@ -179,7 +179,7 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
 
 - (void)shareButtonHandler
 {
-    // Minimize the video if fullscreen so that DodgeThis could work
+    // Minimize the video if fullscreen so that ShareThis can work
     if (self.fullScreenModeToggled) {
         showShareOptions = YES;
         [self minimizeVideo];
