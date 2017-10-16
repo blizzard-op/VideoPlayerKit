@@ -16,6 +16,7 @@ Podfile.lock
 # Xcode files #
 ###############
 xcuserdata/
+*.xcworkspace/
 
 # Compiled source #
 ###################

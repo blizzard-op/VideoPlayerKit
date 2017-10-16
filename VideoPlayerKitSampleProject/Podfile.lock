@@ -1,39 +1,16 @@
 PODS:
-  - cocoa-oauth (0.0.1):
-    - NSData+Base64 (~> 1.0)
-  - Facebook-iOS-SDK (3.1.1)
-  - NSData+Base64 (1.0.0)
-  - REComposeViewController (0.0.1)
-  - ShareThis (1.0.0):
-    - cocoa-oauth (= 0.0.1)
-    - Facebook-iOS-SDK (= 3.1.1)
-    - REComposeViewController (= 0.0.1)
-  - VideoPlayerKit (1.0.0):
-    - ShareThis
+  - VideoPlayerKit (1.0.1)
 
 DEPENDENCIES:
-  - ShareThis (from `https://github.com/ign/ShareThis.git`)
   - VideoPlayerKit (from `../`)
 
 EXTERNAL SOURCES:
-  ShareThis:
-    :git: https://github.com/ign/ShareThis.git
   VideoPlayerKit:
     :path: ../
 
-CHECKOUT OPTIONS:
-  ShareThis:
-    :commit: 27db0e59ffcdfe736a34067ff324533395dcf0e5
-    :git: https://github.com/ign/ShareThis.git
-
 SPEC CHECKSUMS:
-  cocoa-oauth: 1200a2170276a62a975f2786d505dab6e2db1fa8
-  Facebook-iOS-SDK: 9dd77ef7b5302f8c0ca2a9f47bd8f56464b25389
-  NSData+Base64: 4e84902c4db907a15673474677e57763ef3903e4
-  REComposeViewController: 0ec77b087d8fd8496fb10555fad2373487f6d541
-  ShareThis: dcfb4780efd01b968bd39e5932154b89b26d120a
-  VideoPlayerKit: 94ff66fc62ed5bed2d092f1062cb8deaa1af7cd1
+  VideoPlayerKit: 31272af730e5eb6fab1d5f2ddb326708455e63b3
 
-PODFILE CHECKSUM: 92a33b22abeb2d59356071da244f978e585843e9
+PODFILE CHECKSUM: b5198a1dc2efda4abc25b77e61cd3ecd8b425c9f
 
 COCOAPODS: 1.3.1
