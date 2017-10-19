@@ -30,6 +30,7 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
 @property (nonatomic, strong) FullScreenViewController *fullscreenViewController;
 @property (nonatomic) CGRect previousBounds;
 @property (nonatomic) BOOL hideTopViewWithControls;
+@property (nonatomic) UIStatusBarStyle previousStatusBarStyle;
 
 @end
 
@@ -74,6 +75,7 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
         self.containingViewController = containingViewController;
         self.hideTopViewWithControls = hideTopViewWithControls;
         self.topView = topView;
+        self.previousStatusBarStyle = [[UIApplication sharedApplication] statusBarStyle];
     }
     
     return self;
@@ -269,6 +271,7 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
             [self hideControlsAnimated:YES];
         }
         
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
         [self syncFullScreenButton:[[UIApplication sharedApplication] statusBarOrientation]];
         
         if (!self.fullscreenViewController) {
@@ -374,6 +377,7 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
             [self.containingViewController.view addSubview:self.videoPlayerView];
         }
         
+        [[UIApplication sharedApplication] setStatusBarStyle:self.previousStatusBarStyle];
         
         [[UIApplication sharedApplication].keyWindow.rootViewController dismissViewControllerAnimated:self.isAlwaysFullscreen completion:^{
 

@@ -86,14 +86,14 @@
         _currentPositionLabel = [[UILabel alloc] init];
         [_currentPositionLabel setBackgroundColor:[UIColor clearColor]];
         [_currentPositionLabel setTextColor:[UIColor whiteColor]];
-        [_currentPositionLabel setFont:[UIFont fontWithName:@"DINRoundCompPro" size:14.0f]];
+        [_currentPositionLabel setFont:[UIFont systemFontOfSize:14.0f]];
         [_currentPositionLabel setTextAlignment:NSTextAlignmentCenter];
         [_playerControlBar addSubview:_currentPositionLabel];
         
         _timeLeftLabel = [[UILabel alloc] init];
         [_timeLeftLabel setBackgroundColor:[UIColor clearColor]];
         [_timeLeftLabel setTextColor:[UIColor whiteColor]];
-        [_timeLeftLabel setFont:[UIFont fontWithName:@"DINRoundCompPro" size:14.0f]];
+        [_timeLeftLabel setFont:[UIFont systemFontOfSize:14.0f]];
         [_timeLeftLabel setTextAlignment:NSTextAlignmentCenter];
         [_playerControlBar addSubview:_timeLeftLabel];
         

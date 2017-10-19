@@ -20,7 +20,7 @@
         
         // Optional Top View
         _topView = [[UIView alloc] init];
-        UILabel *topViewLabel = [[UILabel alloc] initWithFrame:CGRectMake(LABEL_PADDING, 0, 200, 40.0)];
+        UILabel *topViewLabel = [[UILabel alloc] initWithFrame:CGRectMake(LABEL_PADDING, 10, 200, 40.0)];
         topViewLabel.text = @"Top View Label";
         topViewLabel.textColor = [UIColor whiteColor];
         [_topView addSubview:topViewLabel];
