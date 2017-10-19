@@ -3,6 +3,8 @@
 #import "VideoPlayerSampleViewController.h"
 #import "VideoPlayerSampleView.h"
 
+#define LABEL_PADDING 10
+
 @interface VideoPlayerSampleViewController ()
 
 @property (nonatomic, strong) VideoPlayerKit *videoPlayerViewController;
@@ -18,14 +20,10 @@
         
         // Optional Top View
         _topView = [[UIView alloc] init];
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        button.frame = CGRectMake(0, 0, 200, 40.0);
-        [button addTarget:self
-                   action:@selector(fullScreen)
-         forControlEvents:UIControlEventTouchDown];
-        
-        [button setTitle:@"Full Screen!" forState:UIControlStateNormal];
-        [_topView addSubview:button];
+        UILabel *topViewLabel = [[UILabel alloc] initWithFrame:CGRectMake(LABEL_PADDING, 0, 200, 40.0)];
+        topViewLabel.text = @"Top View Label";
+        topViewLabel.textColor = [UIColor whiteColor];
+        [_topView addSubview:topViewLabel];
     }
     return self;
 }
@@ -49,7 +47,7 @@
 
 - (void)playVideo
 {
-    NSURL *url = [NSURL URLWithString:@"http://ignhdvod-f.akamaihd.net/i/assets.ign.com/videos/zencoder/,416/d4ff0368b5e4a24aee0dab7703d4123a-110000,640/d4ff0368b5e4a24aee0dab7703d4123a-500000,640/d4ff0368b5e4a24aee0dab7703d4123a-1000000,960/d4ff0368b5e4a24aee0dab7703d4123a-2500000,1280/d4ff0368b5e4a24aee0dab7703d4123a-3000000,-1354660143-w.mp4.csmil/master.m3u8"];
+    NSURL *url = [NSURL URLWithString:@"https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8"];
     
     if (!self.videoPlayerViewController) {
         self.videoPlayerViewController = [VideoPlayerKit videoPlayerWithContainingViewController:self optionalTopView:_topView hideTopViewWithControls:YES];
@@ -61,7 +59,7 @@
     
     [self.view addSubview:self.videoPlayerViewController.view];
     
-    [self.videoPlayerViewController playVideoWithTitle:@"Title" URL:url videoID:nil shareURL:nil isStreaming:NO playInFullScreen:YES];
+    [self.videoPlayerViewController playVideoWithTitle:@"Video Title" URL:url videoID:nil shareURL:nil isStreaming:NO playInFullScreen:YES];
 }
 
 - (void)viewDidLoad

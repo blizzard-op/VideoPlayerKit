@@ -60,7 +60,7 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
                                                           object:self
                                                            queue:[NSOperationQueue mainQueue]
                                                       usingBlock:^(NSNotification *note) {
-                                                          [UIView animateWithDuration:0.0f
+                                                          [UIView animateWithDuration:0.4f
                                                                            animations:^{
                                                                                [weakTopView setAlpha:1.0f];
                                                                            }];
@@ -287,6 +287,9 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
         
         if (self.isAlwaysFullscreen) {
             self.videoPlayerView.alpha = 0.0;
+            if (self.topView) {
+                self.topView.alpha = 0.0;
+            }
         } else {
             self.previousBounds = self.videoPlayerView.frame;
             [UIView animateWithDuration:0.45f
@@ -309,6 +312,7 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
                                     options:UIViewAnimationCurveLinear
                                  animations:^{
                                      self.videoPlayerView.alpha = 1.0;
+                                     self.topView.alpha = 1.0;
                                  }
                                  completion:nil];
                 
@@ -591,10 +595,14 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
                                                 withAnimation:UIStatusBarAnimationFade];
     }
 
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hideControlsAnimated:) object:@YES];
+    [NSObject cancelPreviousPerformRequestsWithTarget:self
+                                             selector:@selector(hideControlsAnimated:)
+                                               object:[NSString stringWithFormat:@"YES"]];
     
     if ([self isPlaying]) {
-        [self performSelector:@selector(hideControlsAnimated:) withObject:@YES afterDelay:4.0];
+        [self performSelector:@selector(hideControlsAnimated:)
+                   withObject:[NSString stringWithFormat:@"YES"]
+                   afterDelay:4.0];
     }
 }
 

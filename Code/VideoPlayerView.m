@@ -3,7 +3,7 @@
 #import "VideoPlayerView.h"
 
 #define PLAYER_CONTROL_BAR_HEIGHT 40
-#define BUTTON_PADDING 8
+#define LABEL_PADDING 10
 #define CURRENT_POSITION_WIDTH 56
 #define TIME_LEFT_WIDTH 59
 #define ALIGNMENT_FUZZ 2
@@ -100,11 +100,14 @@
         _activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
         [self addSubview:_activityIndicator];
 
-//        _shareButton = [[UIButton alloc] init];
-//        [_shareButton setImage:[UIImage imageNamed:@"share-button"] forState:UIControlStateNormal];
-//        [_shareButton setShowsTouchWhenHighlighted:YES];
+        _shareButton = [[UIButton alloc] init];
+        [_shareButton setImage:[UIImage imageNamed:@"share-button"] forState:UIControlStateNormal];
+        [_shareButton setShowsTouchWhenHighlighted:YES];
         
-//        [self addSubview:_shareButton];
+        // Hide the Share Button by default after removing ShareThis
+        _shareButton.hidden = YES;
+        
+        [self addSubview:_shareButton];
         self.controlsEdgeInsets = UIEdgeInsetsZero;
     }
     return self;
@@ -136,7 +139,7 @@
         
         self.autoresizingMask = UIViewAutoresizingNone;
         
-        [_titleLabel setFrame:CGRectMake(insetBounds.origin.x + self.padding,
+        [_titleLabel setFrame:CGRectMake(insetBounds.origin.x + LABEL_PADDING,
                                          insetBounds.origin.y,
                                          insetBounds.size.width,
                                          titleLabelSize.height)];
@@ -147,18 +150,19 @@
                                         bounds.size.height - twoLineSize.height - _padding - _padding);
         [_airplayIsActiveView setFrame:playerFrame];
 
-//        [_shareButton setFrame:CGRectMake(insetBounds.size.width - shareImage.size.width, insetBounds.origin.y, shareImage.size.width, shareImage.size.height)];
+        [_shareButton setFrame:CGRectMake(insetBounds.size.width - shareImage.size.width, insetBounds.origin.y, shareImage.size.width, shareImage.size.height)];
     } else {
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
-        [_titleLabel setFrame:CGRectMake(insetBounds.origin.x + self.padding,
+        [_titleLabel setFrame:CGRectMake(insetBounds.origin.x + LABEL_PADDING,
                                          insetBounds.origin.y,
                                          insetBounds.size.width,
                                          titleLabelSize.height)];
         
+        
         [_airplayIsActiveView setFrame:bounds];
         
-//        [_shareButton setFrame:CGRectMake(insetBounds.size.width - shareImage.size.width, insetBounds.origin.y, shareImage.size.width, shareImage.size.height)];
+        [_shareButton setFrame:CGRectMake(insetBounds.size.width - shareImage.size.width, insetBounds.origin.y, shareImage.size.width, shareImage.size.height)];
     }
     
     [_playerControlBar setFrame:CGRectMake(bounds.origin.x,
@@ -212,9 +216,11 @@
                                      CURRENT_POSITION_WIDTH - (TIME_LEFT_WIDTH - CURRENT_POSITION_WIDTH)
                                      - routeButtonRect.size.width,
                                      PLAYER_CONTROL_BAR_HEIGHT);
-    
     [_videoScrubber setFrame:scrubberRect];
-    [_progressView setFrame:[_videoScrubber trackRectForBounds:scrubberRect]];
+    
+    CGRect progressViewFrameWithOffset = [_videoScrubber trackRectForBounds:scrubberRect];
+    progressViewFrameWithOffset.origin.y += 3;
+    [_progressView setFrame:progressViewFrameWithOffset];
 }
 
 - (void)setTitle:(NSString *)title
