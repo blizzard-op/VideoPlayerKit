@@ -4,7 +4,6 @@
 
 @interface VideoPlayerSampleView()
 
-@property (nonatomic, weak) UIView *topView;
 @property (nonatomic, weak) UIView *videoPlayerView;
 @property (nonatomic, readwrite, strong) UIButton *playButton;
 
@@ -12,7 +11,7 @@
 
 @implementation VideoPlayerSampleView
 
-- (id)initWithTopView:(UIView *)topView videoPlayerView:(UIView *)videoPlayerView
+- (id)init
 {
     if ((self = [super init])) {
         self.playButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -32,7 +31,6 @@
                                        (bounds.size.height - 50)/2.0,
                                        100,
                                        50);
-    
 }
 
 @end

@@ -40,7 +40,7 @@
 
 - (void)loadView
 {
-    self.videoPlayerSampleView = [[VideoPlayerSampleView alloc] initWithTopView:nil videoPlayerView:nil];
+    self.videoPlayerSampleView = [[VideoPlayerSampleView alloc] init];
     [self.videoPlayerSampleView.playButton addTarget:self action:@selector(playVideo) forControlEvents:UIControlEventTouchUpInside];
     [self setView:self.videoPlayerSampleView];
 }
