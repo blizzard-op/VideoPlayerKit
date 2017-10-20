@@ -22,7 +22,7 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
 @property (readwrite) BOOL seekToZeroBeforePlay;
 @property (readwrite) BOOL rotationIsLocked;
 @property (readwrite) BOOL playerIsBuffering;
-@property (nonatomic, weak) UIViewController *containingViewController;
+@property (nonatomic, weak) UIView *containingView;
 @property (nonatomic, weak) UIView *topView;
 @property (readwrite) BOOL fullScreenModeToggled;
 @property (nonatomic) BOOL isAlwaysFullscreen;
@@ -69,10 +69,10 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
     }
 }
 
-- (id)initWithContainingViewController:(UIViewController *)containingViewController optionalTopView:(UIView *)topView hideTopViewWithControls:(BOOL)hideTopViewWithControls
+- (id)initWithContainingView:(UIView *)containingView optionalTopView:(UIView *)topView hideTopViewWithControls:(BOOL)hideTopViewWithControls
 {
     if ((self = [super init])) {
-        self.containingViewController = containingViewController;
+        self.containingView = containingView;
         self.hideTopViewWithControls = hideTopViewWithControls;
         self.topView = topView;
         self.previousStatusBarStyle = [[UIApplication sharedApplication] statusBarStyle];
@@ -85,9 +85,20 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
                                                        optionalTopView:(UIView *)topView
                                                hideTopViewWithControls:(BOOL)hideTopViewWithControls
 {
-    VideoPlayerKit *videoPlayer = [[VideoPlayerKit alloc] initWithContainingViewController:containingViewController
-                                                                           optionalTopView:topView
-                                                                   hideTopViewWithControls:hideTopViewWithControls];
+    VideoPlayerKit *videoPlayer = [[VideoPlayerKit alloc] initWithContainingView:containingViewController.view
+                                                                 optionalTopView:topView
+                                                         hideTopViewWithControls:hideTopViewWithControls];
+    
+    return videoPlayer;
+}
+
++ (VideoPlayerKit *)videoPlayerWithContainingView:(UIView *)containingView
+                                            optionalTopView:(UIView *)topView
+                                    hideTopViewWithControls:(BOOL)hideTopViewWithControls
+{
+    VideoPlayerKit *videoPlayer = [[VideoPlayerKit alloc] initWithContainingView:containingView
+                                                                 optionalTopView:topView
+                                                         hideTopViewWithControls:hideTopViewWithControls];
     
     return videoPlayer;
 }
@@ -342,7 +353,7 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
         [self syncFullScreenButton:self.interfaceOrientation];
         
         if (self.topView) {
-            [self.containingViewController.view addSubview:self.topView];
+            [self.containingView addSubview:self.topView];
         }
         
         if (self.isAlwaysFullscreen) {
@@ -374,7 +385,7 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
                              }];
             
             [self.videoPlayerView removeFromSuperview];
-            [self.containingViewController.view addSubview:self.videoPlayerView];
+            [self.containingView addSubview:self.videoPlayerView];
         }
         
         [[UIApplication sharedApplication] setStatusBarStyle:self.previousStatusBarStyle];

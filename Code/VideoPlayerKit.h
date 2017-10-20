@@ -25,5 +25,8 @@
 + (VideoPlayerKit *)videoPlayerWithContainingViewController:(UIViewController *)containingViewController
                                             optionalTopView:(UIView *)topView
                                     hideTopViewWithControls:(BOOL)hideTopViewWithControls;
++ (VideoPlayerKit *)videoPlayerWithContainingView:(UIView *)containingView
+                                  optionalTopView:(UIView *)topView
+                          hideTopViewWithControls:(BOOL)hideTopViewWithControls;
 
 @end
