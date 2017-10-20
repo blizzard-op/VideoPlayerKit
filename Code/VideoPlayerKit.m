@@ -533,7 +533,6 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
                 [self removeObserversFromVideoPlayerItem];
                 [self removePlayerTimeObservers];
                 self.videoPlayer = nil;
-                NSLog(@"failed");
                 break;
         }
     } else if ([keyPath isEqualToString:@"playbackBufferEmpty"] && _videoPlayer.currentItem.playbackBufferEmpty) {
@@ -541,8 +540,16 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
         [[_videoPlayerView activityIndicator] startAnimating];
         [self syncPlayPauseButtons];
     } else if ([keyPath isEqualToString:@"playbackLikelyToKeepUp"] && _videoPlayer.currentItem.playbackLikelyToKeepUp) {
-        if (![self isPlaying] && (playWhenReady || self.playerIsBuffering || scrubBuffering)) {
-            [self playVideo];
+        if (![self isPlaying] && playWhenReady)
+        {
+            if (self.playerIsBuffering || scrubBuffering) {
+                if (self.restoreVideoPlayStateAfterScrubbing) {
+                    self.restoreVideoPlayStateAfterScrubbing = NO;
+                    [self playVideo];
+                }
+            } else {
+                [self playVideo];
+            }
         }
         [[_videoPlayerView activityIndicator] stopAnimating];
         
@@ -822,7 +829,6 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
 -(void)scrubbingDidEnd
 {
     if (self.restoreVideoPlayStateAfterScrubbing) {
-        self.restoreVideoPlayStateAfterScrubbing = NO;
         scrubBuffering = YES;
     }
     [[_videoPlayerView activityIndicator] startAnimating];
