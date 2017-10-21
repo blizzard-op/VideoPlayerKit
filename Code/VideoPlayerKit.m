@@ -106,7 +106,7 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
 - (void)setControlsEdgeInsets:(UIEdgeInsets)controlsEdgeInsets
 {
     if (!self.videoPlayerView) {
-        self.videoPlayerView = [[VideoPlayerView alloc] initWithFrame:self.containingViewController.view.bounds];
+        self.videoPlayerView = [[VideoPlayerView alloc] initWithFrame:self.containingView.bounds];
     }
     _controlsEdgeInsets = controlsEdgeInsets;
     self.videoPlayerView.controlsEdgeInsets = _controlsEdgeInsets;
@@ -135,7 +135,7 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
 - (void)loadView
 {
     if (!self.videoPlayerView) {
-        self.videoPlayerView = [[VideoPlayerView alloc] initWithFrame:self.containingViewController.view.bounds];
+        self.videoPlayerView = [[VideoPlayerView alloc] initWithFrame:self.containingView.bounds];
     }
     self.view = self.videoPlayerView;
 }
@@ -243,7 +243,7 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
         [self launchFullScreen];
     } else {
         self.isAlwaysFullscreen = NO;
-        [self.containingViewController.view addSubview:self.videoPlayerView];
+        [self.containingView addSubview:self.videoPlayerView];
     }
 }
 
