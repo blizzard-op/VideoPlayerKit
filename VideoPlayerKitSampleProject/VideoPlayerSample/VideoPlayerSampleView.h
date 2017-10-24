@@ -4,6 +4,7 @@
 
 @interface VideoPlayerSampleView : UIView
 
+@property (nonatomic, readonly, strong) UIView *videoPlayerView;
 @property (nonatomic, readonly, strong) UIButton *playButton;
 
 @end

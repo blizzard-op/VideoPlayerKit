@@ -137,6 +137,12 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
     if (!self.videoPlayerView) {
         self.videoPlayerView = [[VideoPlayerView alloc] initWithFrame:self.containingView.bounds];
     }
+    
+    if (self.topView) {
+        self.topView.frame = CGRectMake(0, 0, self.videoPlayerView.frame.size.width, self.topView.frame.size.height);
+        [self.videoPlayerView addSubview:self.topView];
+    }
+    
     self.view = self.videoPlayerView;
 }
 
@@ -242,7 +248,6 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
         self.isAlwaysFullscreen = YES;
         [self launchFullScreen];
     } else {
-        self.isAlwaysFullscreen = NO;
         [self.containingView addSubview:self.videoPlayerView];
     }
 }
@@ -356,7 +361,8 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
         [self syncFullScreenButton:self.interfaceOrientation];
         
         if (self.topView) {
-            [self.containingView addSubview:self.topView];
+            [self.topView removeFromSuperview];
+            [self.videoPlayerView addSubview:self.topView];
         }
         
         if (self.isAlwaysFullscreen) {
