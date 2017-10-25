@@ -39,8 +39,9 @@ import "VideoPlayerKit.h"
 ### Initializing video player
 ``` objective-c
 [VideoPlayerKit initWithContainingViewController:optionalTopView:hideTopViewWithControls:];
+[VideoPlayerKit initWithContainingView:optionalTopView:hideTopViewWithControls:];
 ```
-Make sure that the view controller that contains the video player is passed into the first parameter. This is used when a modal fullscreen occurs. The optional top view is a view that will be at the top of the video player. This can be use to put any additional buttons or labels. The third parameter is a boolean that will be used to check if the top view should hide with the video player controls. If this is set to NO, it is still possible to hide the top view only on certain times given the situation using the two notifications: kVideoPlayerWillHideControlsNotification and kVideoPlayerWillShowControlsNotification.
+Make sure that the view controller, or a specific inline view for inline players, containing the video player is passed into the first parameter. The optional top view is a view that will be at the top of the video player. This can be use to put any additional buttons or labels. The third parameter is a boolean that will be used to check if the top view should hide with the video player controls. If this is set to NO, it is still possible to hide the top view only on certain times given the situation using the two notifications: kVideoPlayerWillHideControlsNotification and kVideoPlayerWillShowControlsNotification.
 
 ### Top View Edge Inset
 ``` objective-c
@@ -48,14 +49,11 @@ setControlsEdgeInsets
 ```
 If a top view is set, use this to offset the controls so it accounts for the top view. Usually you'll only want to change the edge inset's top parameter but the option is left open to change it entirely.
 
-### Playing video on inline player
+### Playing the video
 ``` objective-c
 playVideoWithTitle:URL:videoID:isStreaming:playInFullScreen:
 ```
-The method will automatically start playing the video that is given in the url. The title parameter is used for the label that will appear near the bottom of the video player. The videoID and isStreaming parameters are used mainly for analytics tracking. The last parameter, playInFullScreen, is a boolean that when set to YES, the video will play automatically in fullscreen.
-
-### Playing video on non-inline player
-To play a video on a non-inline player, you must add the video player view controller's view as a subview of the current view. Then you follow the same route as the inline player playVideoWithTitle:URL:videoID:isStreaming:playInFullScreen: to play the video.
+The method will automatically initialize the video player and start playing the video that is given in the url. The title parameter is used for the label that will appear near the top of the video player under the optional Top View. The videoID and isStreaming parameters are used mainly for analytics tracking. The last parameter, playInFullScreen, is a boolean that when set to YES, the video will play automatically in fullscreen without an inline player.
 
 ## VideoPlayerDelegate
 

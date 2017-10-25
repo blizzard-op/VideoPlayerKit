@@ -76,11 +76,25 @@
 - (void)loadView
 {
     self.videoPlayerSampleView = [[VideoPlayerSampleView alloc] init];
-    [self.videoPlayerSampleView.playButton addTarget:self action:@selector(playVideo) forControlEvents:UIControlEventTouchUpInside];
+    [self.videoPlayerSampleView.playFullScreenButton addTarget:self action:@selector(playVideoFullScreen) forControlEvents:UIControlEventTouchUpInside];
+    [self.videoPlayerSampleView.playInlineButton addTarget:self action:@selector(playVideoInline) forControlEvents:UIControlEventTouchUpInside];
     [self setView:self.videoPlayerSampleView];
 }
 
-- (void)playVideo
+- (void)playVideoFullScreen
+{
+    // Hide Play Inline button on FullScreen to avoid layout conflicts
+    [self.videoPlayerSampleView.playInlineButton setHidden:YES];
+    
+    [self playVideo:YES];
+}
+
+- (void)playVideoInline
+{
+    [self playVideo:NO];
+}
+
+- (void)playVideo:(BOOL)playInFullScreen
 {
     NSURL *url = [NSURL URLWithString:@"https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8"];
     
@@ -96,7 +110,7 @@
     
     [self.view addSubview:self.videoPlayerViewController.view];
     
-    [self.videoPlayerViewController playVideoWithTitle:@"Video Title" URL:url videoID:nil shareURL:nil isStreaming:NO playInFullScreen:NO];
+    [self.videoPlayerViewController playVideoWithTitle:@"Video Title" URL:url videoID:nil shareURL:nil isStreaming:NO playInFullScreen:playInFullScreen];
 }
 
 - (void)viewDidLoad

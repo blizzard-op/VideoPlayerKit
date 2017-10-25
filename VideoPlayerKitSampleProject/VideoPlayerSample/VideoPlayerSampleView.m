@@ -5,7 +5,8 @@
 @interface VideoPlayerSampleView()
 
 @property (nonatomic, readwrite, strong) UIView *videoPlayerView;
-@property (nonatomic, readwrite, strong) UIButton *playButton;
+@property (nonatomic, readwrite, strong) UIButton *playFullScreenButton;
+@property (nonatomic, readwrite, strong) UIButton *playInlineButton;
 
 @end
 
@@ -14,9 +15,13 @@
 - (id)init
 {
     if ((self = [super init])) {
-        self.playButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [self.playButton setTitle:@"Play Video" forState:UIControlStateNormal];
-        [self addSubview:self.playButton];
+        self.playInlineButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [self.playInlineButton setTitle:@"Play Inline" forState:UIControlStateNormal];
+        [self addSubview:self.playInlineButton];
+        
+        self.playFullScreenButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [self.playFullScreenButton setTitle:@"Play Fullscreen" forState:UIControlStateNormal];
+        [self addSubview:self.playFullScreenButton];
         
         self.videoPlayerView = [[UIView alloc] init];
         self.videoPlayerView.autoresizesSubviews = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
@@ -32,9 +37,14 @@
 {
     [super layoutSubviews];
     CGRect bounds = self.bounds;
-    self.playButton.frame = CGRectMake((bounds.size.width - 100)/2.0,
-                                       (bounds.size.height - 50)/2.0,
-                                       100,
+    self.playInlineButton.frame = CGRectMake((bounds.size.width - 150)/2.0,
+                                             (bounds.size.height - 50)/2.0,
+                                             150,
+                                             50);
+    
+    self.playFullScreenButton.frame = CGRectMake((bounds.size.width - 150)/2.0,
+                                       (bounds.size.height + 50)/2.0,
+                                       150,
                                        50);
     
     CGFloat videoHeight = bounds.size.width * 9 / 16;

@@ -366,6 +366,7 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
         }
         
         if (self.isAlwaysFullscreen) {
+            [self.videoPlayer pause];
             [UIView animateWithDuration:0.45f
                                   delay:0.0f
                                 options:UIViewAnimationCurveLinear
