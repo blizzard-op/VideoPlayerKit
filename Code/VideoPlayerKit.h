@@ -24,7 +24,8 @@
 - (void)playPauseHandler;
 + (VideoPlayerKit *)videoPlayerWithContainingViewController:(UIViewController *)containingViewController
                                             optionalTopView:(UIView *)topView
-                                    hideTopViewWithControls:(BOOL)hideTopViewWithControls;
+                                    hideTopViewWithControls:(BOOL)hideTopViewWithControls
+                                    __attribute__((deprecated("Replaced by videoPlayerWithContainingView:(UIView *)")));
 + (VideoPlayerKit *)videoPlayerWithContainingView:(UIView *)containingView
                                   optionalTopView:(UIView *)topView
                           hideTopViewWithControls:(BOOL)hideTopViewWithControls;
