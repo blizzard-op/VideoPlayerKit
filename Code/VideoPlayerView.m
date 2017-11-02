@@ -3,7 +3,7 @@
 #import "VideoPlayerView.h"
 
 #define PLAYER_CONTROL_BAR_HEIGHT 40
-#define BUTTON_PADDING 8
+#define LABEL_PADDING 10
 #define CURRENT_POSITION_WIDTH 56
 #define TIME_LEFT_WIDTH 59
 #define ALIGNMENT_FUZZ 2
@@ -86,14 +86,14 @@
         _currentPositionLabel = [[UILabel alloc] init];
         [_currentPositionLabel setBackgroundColor:[UIColor clearColor]];
         [_currentPositionLabel setTextColor:[UIColor whiteColor]];
-        [_currentPositionLabel setFont:[UIFont fontWithName:@"DINRoundCompPro" size:14.0f]];
+        [_currentPositionLabel setFont:[UIFont systemFontOfSize:14.0f]];
         [_currentPositionLabel setTextAlignment:NSTextAlignmentCenter];
         [_playerControlBar addSubview:_currentPositionLabel];
         
         _timeLeftLabel = [[UILabel alloc] init];
         [_timeLeftLabel setBackgroundColor:[UIColor clearColor]];
         [_timeLeftLabel setTextColor:[UIColor whiteColor]];
-        [_timeLeftLabel setFont:[UIFont fontWithName:@"DINRoundCompPro" size:14.0f]];
+        [_timeLeftLabel setFont:[UIFont systemFontOfSize:14.0f]];
         [_timeLeftLabel setTextAlignment:NSTextAlignmentCenter];
         [_playerControlBar addSubview:_timeLeftLabel];
         
@@ -103,6 +103,9 @@
         _shareButton = [[UIButton alloc] init];
         [_shareButton setImage:[UIImage imageNamed:@"share-button"] forState:UIControlStateNormal];
         [_shareButton setShowsTouchWhenHighlighted:YES];
+        
+        // Hide the Share Button by default after removing ShareThis
+        _shareButton.hidden = YES;
         
         [self addSubview:_shareButton];
         self.controlsEdgeInsets = UIEdgeInsetsZero;
@@ -136,7 +139,7 @@
         
         self.autoresizingMask = UIViewAutoresizingNone;
         
-        [_titleLabel setFrame:CGRectMake(insetBounds.origin.x + self.padding,
+        [_titleLabel setFrame:CGRectMake(insetBounds.origin.x + LABEL_PADDING,
                                          insetBounds.origin.y,
                                          insetBounds.size.width,
                                          titleLabelSize.height)];
@@ -151,10 +154,11 @@
     } else {
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
-        [_titleLabel setFrame:CGRectMake(insetBounds.origin.x + self.padding,
+        [_titleLabel setFrame:CGRectMake(insetBounds.origin.x + LABEL_PADDING,
                                          insetBounds.origin.y,
                                          insetBounds.size.width,
                                          titleLabelSize.height)];
+        
         
         [_airplayIsActiveView setFrame:bounds];
         
@@ -212,9 +216,11 @@
                                      CURRENT_POSITION_WIDTH - (TIME_LEFT_WIDTH - CURRENT_POSITION_WIDTH)
                                      - routeButtonRect.size.width,
                                      PLAYER_CONTROL_BAR_HEIGHT);
-    
     [_videoScrubber setFrame:scrubberRect];
-    [_progressView setFrame:[_videoScrubber trackRectForBounds:scrubberRect]];
+    
+    CGRect progressViewFrameWithOffset = [_videoScrubber trackRectForBounds:scrubberRect];
+    progressViewFrameWithOffset.origin.y += 3;
+    [_progressView setFrame:progressViewFrameWithOffset];
 }
 
 - (void)setTitle:(NSString *)title

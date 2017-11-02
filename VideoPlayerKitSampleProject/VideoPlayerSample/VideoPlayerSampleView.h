@@ -4,7 +4,8 @@
 
 @interface VideoPlayerSampleView : UIView
 
-@property (nonatomic, readonly, strong) UIButton *playButton;
-- (id)initWithTopView:(UIView *)topView videoPlayerView:(UIView *)videoPlayerView;
+@property (nonatomic, readonly, strong) UIView *videoPlayerView;
+@property (nonatomic, readonly, strong) UIButton *playFullScreenButton;
+@property (nonatomic, readonly, strong) UIButton *playInlineButton;
 
 @end
