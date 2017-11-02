@@ -11,10 +11,12 @@ NSString * const kTrackEventVideoStart = @"Video Start";
 NSString * const kTrackEventVideoLiveStart = @"Video Live Start";
 NSString * const kTrackEventVideoComplete = @"Video Complete";
 
+// Match the controls animation duration with status bar duration
+static const NSTimeInterval controlsAnimationDuration = 0.4;
+
 @interface VideoPlayerKit () <UIGestureRecognizerDelegate>
 
 @property (readwrite, strong) NSDictionary *currentVideoInfo;
-
 @property (readwrite, strong) VideoPlayerView *videoPlayerView;
 @property (readwrite) BOOL restoreVideoPlayStateAfterScrubbing;
 @property (readwrite, strong) id scrubberTimeObserver;
@@ -51,7 +53,7 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
                                                           object:self
                                                            queue:[NSOperationQueue mainQueue]
                                                       usingBlock:^(NSNotification *note) {
-                                                          [UIView animateWithDuration:0.4f
+                                                          [UIView animateWithDuration:controlsAnimationDuration
                                                                            animations:^{
                                                                                [weakTopView setAlpha:0.0f];
                                                                            }];
@@ -61,7 +63,7 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
                                                           object:self
                                                            queue:[NSOperationQueue mainQueue]
                                                       usingBlock:^(NSNotification *note) {
-                                                          [UIView animateWithDuration:0.4f
+                                                          [UIView animateWithDuration:controlsAnimationDuration
                                                                            animations:^{
                                                                                [weakTopView setAlpha:1.0f];
                                                                            }];
@@ -616,7 +618,7 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
     [[NSNotificationCenter defaultCenter] postNotificationName:kVideoPlayerWillShowControlsNotification
                                                         object:self
                                                       userInfo:nil];
-    [UIView animateWithDuration:0.4 animations:^{
+    [UIView animateWithDuration:controlsAnimationDuration animations:^{
         self.videoPlayerView.playerControlBar.alpha = 1.0;
         self.videoPlayerView.titleLabel.alpha = 1.0;
         _videoPlayerView.shareButton.alpha = 1.0;
@@ -644,7 +646,7 @@ NSString * const kTrackEventVideoComplete = @"Video Complete";
                                                         object:self
                                                       userInfo:nil];
     if (animated) {
-        [UIView animateWithDuration:0.4 animations:^{
+        [UIView animateWithDuration:controlsAnimationDuration animations:^{
             self.videoPlayerView.playerControlBar.alpha = 0;
             self.videoPlayerView.titleLabel.alpha = 0;
             _videoPlayerView.shareButton.alpha = 0;
